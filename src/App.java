@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -33,8 +34,14 @@ public class App {
                 acc.withdraw(amount);
                 System.out.printf("Novo saldo da conta %.2f%n ", acc.getBalance());
             }
+             catch (InputMismatchException e) {
+            System.out.println("Erro de entrada: insira apenas números válidos.");
+            }
             catch (BussinessExceptions e){
                 System.out.println(e.getMessage());
+            }
+            catch(RuntimeException a){
+                System.out.println("Erro " + a.getMessage());
             }
             
 
